@@ -188,7 +188,7 @@ include("config.php");
 										<tbody>
 											
 											<?<?php 
-											$results=mysqli_query($mysqli,"SELECT * FROM patientimmunizationprogress");
+											$results=mysqli_query($mysqli,"SELECT * FROM moh510register");
 											while($data=mysqli_fetch_array($results)){
 											
 											?>
