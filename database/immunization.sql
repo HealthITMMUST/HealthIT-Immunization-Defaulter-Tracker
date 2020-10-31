@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2020 at 08:46 PM
+-- Generation Time: Oct 31, 2020 at 04:46 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -178,6 +178,20 @@ CREATE TABLE IF NOT EXISTS `patientimmunizationprogress` (
   `remarks` text,
   PRIMARY KEY (`serialnumber`),
   UNIQUE KEY `serialnumber` (`serialnumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL DEFAULT '123',
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
