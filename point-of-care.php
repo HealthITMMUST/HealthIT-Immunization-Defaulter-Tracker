@@ -142,14 +142,14 @@ include("config.php");
 
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title mb-0"><i class="align-middle" data-feather="user"></i>  Patient Category</h5>
+									<h5 class="card-title mb-0"><i class="align-middle" data-feather="user"></i>  Category</h5>
 								</div>
 
 								<div class="list-group list-group-flush" role="tablist">
 									<a class="list-group-item list-group-item-action" data-toggle="list" href="#newpatient" role="tab">
           New Patient
         </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#searchpatient" role="tab">
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#revisitpatient" role="tab">
           Revisit Patient
         </a>
 									
@@ -163,7 +163,7 @@ include("config.php");
 
 						<div class="col-md-9 col-xl-10">
 							<div class="tab-content">
-								<div class="tab-pane fade show active" id="newpatient" role="tabpanel">
+								<div class="tab-pane fade" id="newpatient" role="tabpanel">
 
 									<div class="card">
 										<div class="card-header">
@@ -279,7 +279,7 @@ include("config.php");
 									</div>
 							<!-- Search patient-->
 							</div>
-								<div class="tab-pane fade" id="searchpatient" role="tabpanel">
+								<div class="tab-pane fade show active" id="revisitpatient" role="tabpanel">
 									<div class="card">
 										<div class="card-body">
 											<h5 class="card-title">Search for an existing patient</</h5>
@@ -362,12 +362,13 @@ include("config.php");
 																			document.getElementById("autofill-inputMName").value = this.cells[8].innerHTML;
 																			document.getElementById("autofill-inputVillage").value = this.cells[9].innerHTML;
 																			document.getElementById("autofill-inputTelephone").value = this.cells[10].innerHTML;
+																			document.getElementById("exampledata").value = this.cells[1].innerHTML;
 
 																		};
 																	}
 																</script>
 
-
+																
 
 															</div>
 
@@ -390,61 +391,64 @@ include("config.php");
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputDate">Date</label>
-																<input type="text" class="form-control" id="autofill-inputDate" name="date" disabled>
+																<input type="text" readonly class="form-control" id="autofill-inputDate" name="date">
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputSN">Serial Number</label>
-																<input type="text" class="form-control" id="autofill-inputSN" name="serialnumber" disabled placeholder="Auto-generated">
+																<input type="text" class="form-control" id="autofill-inputSN" name="serialnumber" readonly placeholder="Auto-generated">
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputCNumber">Child's Number</label>
-																<input type="text" class="form-control" id="autofill-inputCNumber" name="childsnumber" disabled>
+																<input type="text" class="form-control" id="autofill-inputCNumber" name="childsnumber" readonly>
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputCName">Child's Name</label>
-																<input type="text" class="form-control" id="autofill-inputCName" name="childsname" disabled>
+																<input type="text" class="form-control" id="autofill-inputCName" name="childsname" readonly>
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputSex">Sex</label>
-																<input type="text" class="form-control" id="autofill-inputSex" name="sex" disabled>														
+																<input type="text" class="form-control" id="autofill-inputSex" name="sex" readonly>														
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputDateofBirth">Date of Birth</label>
-																<input type="text" class="form-control" id="autofill-inputDateofBirth" name="dob" disabled>
+																<input type="text" class="form-control" id="autofill-inputDateofBirth" name="dob" readonly>
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputDateFirstSeen">Date First Seen</label>
-																<input type="text" class="form-control" id="autofill-inputDateFirstSeen" name="datefirstseen" disabled>
+																<input type="text" class="form-control" id="autofill-inputDateFirstSeen" name="datefirstseen" readonly>
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputFName">Father's Full Name</label>
-																<input type="text" class="form-control" id="autofill-inputFName" name="fname" disabled>
+																<input type="text" class="form-control" id="autofill-inputFName" name="fname" readonly>
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputMName">Mother's Full Name</label>
-																<input type="text" class="form-control" id="autofill-inputMName" name="mname" disabled>
+																<input type="text" class="form-control" id="autofill-inputMName" name="mname" readonly>
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputVillage">Village</label>
-																<input type="text" class="form-control" id="autofill-inputVillage" name="village" disabled>
+																<input type="text" class="form-control" id="autofill-inputVillage" name="village" readonly>
 															</div>
 															<!--Row-->
 															<div class="mb-3 col-md-6">
 																<label class="form-label" for="autofill-inputTelephone">Telephone</label>
-																<input type="text" class="form-control" id="autofill-inputTelephone" name="telephone" disabled>
+																<input type="text" class="form-control" id="autofill-inputTelephone" name="telephone" readonly>
 															</div>
 															
 															</div>
-															<button type="submit" class="btn btn-primary" name="buttonEnrollPatient" href="#searchpatient">Enroll patient for vaccination</button>
+															<button type="submit" class="btn btn-primary" name="buttonEnrollPatient">Enroll patient for vaccination</button>
+
+															<br>
+															<br>
 
 
 
@@ -467,13 +471,16 @@ include("config.php");
 
 															$enrollpatient=mysqli_query($mysqli,"INSERT into moh510register values('$inputDate','$inputSN','$inputCNumber','$inputCName','$inputSex','$inputDateofBirth','$inputDateFirstSeen','$inputFName','$inputMName','$inputVillage','$inputTelephone','','','','','','','','','','','','','','','','','','','','','','')");
 															if($enrollpatient){
-																echo "Success";
+																echo "$inputCName has been enrolled successfully";
+
 															}else{
 																
 																echo "Fail".mysqli_error($enrollpatient);
 															}
+
 															
 															}
+
 															?>
 																									
 													</form>	
@@ -528,6 +535,7 @@ include("config.php");
 
 									</ul>
 								</div>
+<!--Start of Tabs -->								
 								<div class="card-body">
 									<div class="tab-content">
 										<!-- Tab 1 -->
@@ -942,7 +950,7 @@ include("config.php");
 															</div>
 													
 														</div>
-														<button type="submit" class="btn btn-primary" name="buttonFic">Administer</button>
+														<button type="submit" class="btn btn-primary" name="buttonFic">Save</button>
 
 											
 													</form>
@@ -994,7 +1002,7 @@ include("config.php");
 															</div>
 													
 														</div>
-														<button type="submit" class="btn btn-primary" name="buttonLlitn">Administer</button>
+														<button type="submit" class="btn btn-primary" name="buttonLlitn">Save</button>
 
 											
 													</form>
@@ -1048,7 +1056,7 @@ include("config.php");
 															</div>
 													
 														</div>
-														<button type="submit" class="btn btn-primary" name="buttonReferrals">Administer</button>
+														<button type="submit" class="btn btn-primary" name="buttonReferrals">Save</button>
 
 											
 													</form>
@@ -1095,7 +1103,7 @@ include("config.php");
 															</div>
 													
 														</div>
-														<button type="submit" class="btn btn-primary" name="buttonRemarks">Administer</button>
+														<button type="submit" class="btn btn-primary" name="buttonRemarks">Save</button>
 
 											
 													</form>
