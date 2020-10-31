@@ -31,7 +31,7 @@ include("config.php");
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index.html">
+				<a class="sidebar-brand" href="dashboard.php">
           <span class="align-middle">HealthIT</span><br>
           <span class="align-middle">Immunization Tracker</span>
         </a>
@@ -42,7 +42,7 @@ include("config.php");
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
+						<a class="sidebar-link" href="dashboard.php">
               <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
@@ -91,6 +91,11 @@ include("config.php");
               <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
             </a>
 					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="accounts.php">
+              <i class="align-middle" data-feather="users"></i> <span class="align-middle">Accounts</span>
+            </a>
+					</li>
 					    			
 			</ul>
 			</div>
@@ -132,7 +137,7 @@ include("config.php");
 							<div class="col-auto ml-auto text-right mt-n1">
 								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
-										<li class="breadcrumb-item"><a href="#">HealthIT Immunization Tracker</a></li>
+										<li class="breadcrumb-item"><a href="dashboard.php">HealthIT Immunization Tracker</a></li>
 										<li class="breadcrumb-item active" aria-current="page">MOH 510 Register</li>
 										
 									</ol>
@@ -145,7 +150,7 @@ include("config.php");
 									<h5 class="card-title">Date When Immunization was given must be indicated.</h5>
 								</div>
 								<div class="table-responsive">
-									<table class="table mb-0" name="MOH510Register">
+									<table class="table mb-0" name="MOH510Register" id="MOH510RegisterPDF">
 										<thead>
 											<tr>
 												<th scope="col">Date</th>
@@ -187,7 +192,7 @@ include("config.php");
 										</thead>
 										<tbody>
 											
-											<?<?php 
+											<?php 
 											$results=mysqli_query($mysqli,"SELECT * FROM moh510register");
 											while($data=mysqli_fetch_array($results)){
 											
@@ -230,7 +235,7 @@ include("config.php");
 													<td class="table-action">
 													<a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
 													<a href="#"><i class="align-middle" data-feather="trash"></i></a>
-											</td>
+													</td>
 												</tr>
 													<?php
 												}
@@ -239,7 +244,38 @@ include("config.php");
 									</table>
 								</div>
 							</div>
-							<button type="button" class="btn btn-primary" name="buttonPrint" onclick="printFunction.printTable">Print Register</button>
+							<button type="button" class="btn btn-primary" name="buttonPrint" onclick="createMOH510PDF()">Print Register</button>
+							
+<!-- Print MOH510 Register-->
+								<script>
+								    function createMOH510PDF() {
+								        var sTable = document.getElementById('MOH510RegisterPDF').innerHTML;
+								        win.print();
+
+								        var style = "<style>";
+								        style = style + "table {width: 100%;font: 17px Calibri;}";
+								        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+								        style = style + "padding: 2px 3px;text-align: center;}";
+								        style = style + "</style>";
+
+								        // CREATE A WINDOW OBJECT.
+								        var win = window.open('', '', 'height=700,width=700');
+
+								        win.document.write('<html><head>');
+								        win.document.write('<title>MOH 510 REGISTER</title>');   // <title> FOR PDF HEADER.
+								        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+								        win.document.write('</head>');
+								        win.document.write('<body>');
+								        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+								        win.document.write('</body></html>');
+
+								        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+								        win.print();    // PRINT THE CONTENTS.
+								    }
+							</script>
+<!-- End of print-->
+
 						</div>
 
 					</div>
@@ -251,7 +287,7 @@ include("config.php");
 					<div class="row text-muted">
 						<div class="col-6 text-left">
 							<p class="mb-0">
-								<a href="index.html" class="text-muted"><strong>HealthIT 2020</strong></a> &copy;
+								<a href="dashboard.php"><strong>HealthIT 2020</strong></a> &copy;
 							</p>
 						</div>
 						
@@ -262,6 +298,7 @@ include("config.php");
 	</div>
 
 	<script src="js/app.js"></script>
+	<script src="js/printpdf.js"></script>
 
 	
 </body>
