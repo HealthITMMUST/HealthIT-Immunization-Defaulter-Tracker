@@ -139,7 +139,17 @@ include("config.php");
 										<div class="card">
 											<div class="card-body">
 												<h5 class="card-title mb-4">Total Enrolled Patients</h5>
-												<h1 class="mt-1 mb-3">0</h1>
+														<?php 
+														$results=mysqli_query($mysqli,"SELECT COUNT(serialnumber) AS totalpatients FROM moh510register");
+														if($results->num_rows >0){
+															$row = $results->fetch_assoc();
+														}else{
+															echo "0 results";
+														}
+														
+																		
+														?>
+												<h1 class="mt-1 mb-3"><?php echo $row['totalpatients'];?></h1>
 											</div>
 										</div>
 									</div>
