@@ -50,13 +50,13 @@ include("config.php");
               <i class="align-middle" data-feather="users"></i> <span class="align-middle">Appointments</span>
             </a>
 						<ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="queued-appointments.html">Queued Appointments</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="missed-appointments.html">Missed Appointments</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="queued-appointments.php">Queued Appointments</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="missed-appointments.php">Missed Appointments</a></li>
 							</li>
 						</ul>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="sms-reminders.html">
+						<a class="sidebar-link" href="sms-reminders.php">
               <i class="align-middle" data-feather="message-circle"></i> <span class="align-middle">SMS Reminders</span>
             </a>
 					</li>
@@ -64,7 +64,7 @@ include("config.php");
 						Drug Store
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="current-stock.html">
+						<a class="sidebar-link" href="current-stock.php">
               <i class="align-middle" data-feather="shopping-cart"></i> <span class="align-middle">Current stock</span>
             </a>
         			</li>
@@ -80,7 +80,7 @@ include("config.php");
 						Settings
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="settings.html">
+						<a class="sidebar-link" href="settings.php">
               <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
             </a>
 					</li>
