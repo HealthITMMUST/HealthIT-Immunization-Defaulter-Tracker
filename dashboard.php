@@ -144,26 +144,38 @@ include("config.php");
 									<div class="col-sm-6">
 										<div class="card">
 											<div class="card-body">
-												<h5 class="card-title mb-4">Total Enrolled Patients</h5>
+												<h5 class="card-title mb-4">Total Clients</h5>
+														
 														<?php 
-														$results=mysqli_query($mysqli,"SELECT COUNT(serialnumber) AS totalpatients FROM moh510register");
-														if($results->num_rows >0){
-															$row = $results->fetch_assoc();
+														$clients=mysqli_query($mysqli,"SELECT COUNT(serialnumber) AS totalclients FROM patientbasicinfo");
+														if($clients->num_rows >0){
+															$numberofclients = $clients->fetch_assoc();
 														}else{
 															echo "0 results";
 														}
 														
 																		
 														?>
-												<h1 class="mt-1 mb-3"><?php echo $row['totalpatients'];?></h1>
+												<h1 class="mt-1 mb-3"><?php echo $numberofclients['totalclients'];?></h1>
 											</div>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="card">
 											<div class="card-body">
-												<h5 class="card-title mb-4">Patients Immunized Today</h5>
-												<h1 class="mt-1 mb-3">0</h1>										
+												<h5 class="card-title mb-4">Total Enrolled Patients</h5>
+														<?php 
+														$enrolledpatients=mysqli_query($mysqli,"SELECT COUNT(serialnumber) AS totalenrolledpatients FROM moh510register");
+														if($enrolledpatients->num_rows >0){
+															$numberofenrolledpatients = $enrolledpatients->fetch_assoc();
+														}else{
+															echo "0 results";
+														}
+														
+																		
+														?>
+												<h1 class="mt-1 mb-3"><?php echo $numberofenrolledpatients['totalenrolledpatients'];?></h1>
+												
 											</div>
 										</div>
 									</div>
